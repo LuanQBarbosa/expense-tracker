@@ -12,7 +12,9 @@ const Expenses = ({ items }) => {
         setFilteredYear(selectedYear);
     };
 
-    const expenseItems = items.map(expense => {
+    const filteredItems = items.filter((item) => item.date.getFullYear().toString() === filteredYear);
+
+    const expenseItems = filteredItems.map(expense => {
         return (
             <ExpenseItem
                 key={expense.id}
